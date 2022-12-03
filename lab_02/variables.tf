@@ -1,19 +1,16 @@
-variable "rules" {
-  type = list(object({
-    port        = number
-    protocol       = string
-    cidr_blocks = list(string)
-  }))
-  default = [
-    {
-      port        = 80
-      protocol       = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    },
-    {
-      port        = 22
-      protocol       = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
-  ]
+variable "region" {
+  default = "eu-west-2"
+}
+
+variable "instance_type" {
+  default = "t2.micro"
+}
+
+variable "instance_ami" {
+  default = "use a linux ID from your console"
+}
+
+
+variable "key_name" {
+  default = "use a key name from your console"
 }

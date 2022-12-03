@@ -1,14 +1,19 @@
+
 resource "aws_security_group" "cba_tf_sg" {
-  vpc_id = aws_vpc.cba_vpc.id
-  name   = "cba_tf_sg"
-  dynamic "ingress" {
-    for_each = var.rules
-    content {
-      from_port   = ingress.value["port"]
-      to_port     = ingress.value["port"]
-      protocol    = ingress.value["protocol"]
-      cidr_blocks = ingress.value["cidr_blocks"]
-    }
+  name        = "cba_tf_sg"
+  vpc_id      = aws_vpc.my_vpc.id
+  description = "allow all traffic"
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
   }
   egress {
     from_port   = 0
@@ -17,6 +22,6 @@ resource "aws_security_group" "cba_tf_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   tags = {
-    Name = "ApacheSG"
+    name = "CBAterraformSG"
   }
 }
