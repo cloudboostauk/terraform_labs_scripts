@@ -4,7 +4,7 @@ resource "aws_instance" "cba_tf_instance" {
   ami = var.instance_ami
   key_name = var.key_name
 
-    tags = {
-      Name = "CBATerraformInstance"
+  tags = {
+    Name = "CBATerraformInstance"
     }
 }
