@@ -7,7 +7,7 @@ variable "instance_type" {
 }
 
 variable "instance_ami" {
-  default = "use a linux ami id from your aws console"
+  default = "replace with a linux ami id from your aws console"
 }
 
 
@@ -17,5 +17,5 @@ variable "vpc_id" {
 
 
 variable "key_name" {
-  default = "use a key-pair name from your aws console"
+  default = "replace with a key-pair name from your aws console"
 }
